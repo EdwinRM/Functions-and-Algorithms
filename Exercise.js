@@ -130,7 +130,6 @@ console.log({ chunks });
             return true;
         }
     }
-
 })('uniqe');
 
 
@@ -204,5 +203,106 @@ And finally return said array.*/
 function confirmEnding(str, target) {
     return str.slice(str.length - target.length) === target; //slice starts at the position 12 beginning of 'on'
 }
-
 confirmEnding("Congratulation", "on");
+
+
+//Repeat a given string str (first argument) for num times (second argument). 
+//Return an empty string if num is not a positive number.
+
+function repeatStringNumTimes(str, num) {
+    // repeat after me
+    let temp = "";
+    for (let i = 0; i < num; i++) {
+        if (num <= 0) {
+            temp = "";
+        } else {
+            temp += str
+        }
+    }
+    return temp;
+}
+repeatStringNumTimes("abc", 3);
+
+
+//Truncate a string (first argument) if it is longer than the given 
+//maximum string length (second argument). Return the truncated string with a ... ending.
+
+function truncateString(str, num) {
+    // Clear out that junk in your trunk
+    if (str.length > num) {
+        return str.slice(0, num) + '...';
+    } else {
+        return str;
+    }
+}
+truncateString("A-tisket a-tasket A green and yellow basket", 8);
+
+
+/*Create a function that looks through an array (first argument) and returns the first element in the array 
+that passes a truth test (second argument). If no element passes the test, return undefined.*/
+function findElement(arr, func) {
+    let num = 0;
+    for (let i of arr) {
+        if (func(i)) {
+            return num = i;
+        } else {
+            num = undefined;
+        }
+    }
+    return num;
+}
+findElement([1, 2, 3, 4], num => num % 2 === 0);
+
+/**
+ * Boo who
+Check if a value is classified as a boolean primitive. Return true or false.
+Boolean primitives are true and false.
+ */
+
+function booWho(bool) {
+    // What is the new fad diet for ghost developers? The Boolean.
+    if (typeof bool === 'boolean') {
+        return true;
+    } else {
+        return false;
+    }
+}
+booWho(null);
+
+/**
+ * Title Case a Sentence
+Return the provided string with the first letter of each word capitalized. Make sure the rest of the word is in lower case.
+For the purpose of this exercise, you should also capitalize connecting words like "the" and "of".
+ */
+
+function titleCase(str) {
+    let e = str.split(" ");
+    //let len = e.length;
+    for (let i = 0; i < e.length; i++) {
+        if (e[i][0]) {
+            e[i][0].toUpperCase();
+        }
+    }
+    return str;
+}
+titleCase("I'm a little tea pot");
+
+/**
+Slice and Splice
+You are given two arrays and an index.
+Use the array methods slice and splice to copy each element of the first array into the second array, in order.
+Begin inserting elements at index n of the second array.
+Return the resulting array. The input arrays should remain the same after the function runs.
+ */
+function frankenSplice(arr1, arr2, n) {
+    // It's alive. It's alive!
+    arr1.reverse();
+    for (let i = 0; i < arr1.length; i++) {
+        arr2.splice(n, 0, arr1[i]);
+    }
+    return (arr2);
+}
+frankenSplice(["claw", "tentacle"], ["head", "shoulders", "knees", "toes"], 2);
+
+
+
